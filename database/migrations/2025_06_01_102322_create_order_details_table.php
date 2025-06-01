@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
+            $table->string('first_name', 100);
+            $table->string('last_name', 100);
+            $table->string('phone', 255);
+            $table->string('address1', 255);
+            $table->string('address2', 255);
+            $table->string('city', 100);
+            $table->string('state', 100)->nullable();
+            $table->string('zipcode', 20);
+            $table->string('country_code', 2);
             $table->timestamps();
+
         });
     }
 

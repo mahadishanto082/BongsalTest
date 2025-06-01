@@ -1,4 +1,5 @@
 <?php
+use App\Models\User;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,8 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+           $table->string('code', 2)->primary();
+              $table->string('name', 2000);
+              $table->jsonb('states')->nullable();
+              
+           
         });
     }
 
