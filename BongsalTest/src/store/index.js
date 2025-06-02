@@ -2,7 +2,7 @@ import {createStore} from 'vuex';
 
 const store = createStore({
     state: {
-        test:'123'
+        test:'1237679'
     },
     mutations: {},
     actions: {},
