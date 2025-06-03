@@ -13,7 +13,7 @@
 
 <body id="app">
     <app>
-
+sdfsd
     </app>
 
     @vite('resources/js/app.js')
