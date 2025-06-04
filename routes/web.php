@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('{any?}', function () {
-    return Inertia::render('app');
+    return view('app');
+  
 })->where('any', '.*')->name('app');
 // Route::post('api/login', [App\Http\Controllers\API\V1\AuthController::class, 'login']);
 

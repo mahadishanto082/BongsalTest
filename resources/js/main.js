@@ -3,10 +3,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 import { createApp } from 'vue'
-import store from './store'
+import store from '../../BongsalTest/src/store'
 import './index.css';
 import './style.css'
-import router from './router'
+import router from '../../BongsalTest/src/router'
 import App from './App.vue'
 
 createApp(App)
