@@ -56,9 +56,10 @@ const submit = async () => {
 
         console.log('Login success:', response.data);
 
-        alert('Registration successful!');
+        alert(' Login Successful');
         // Optional: Redirect to login page
-        this.$router.push('/Cart/Dashboard');
+        router.push('/dashboard'); 
+
     } catch (error) {
         console.error('Login failed:', error.response?.data || error.message);
         alert('Login failed. Please check your credentials.');
