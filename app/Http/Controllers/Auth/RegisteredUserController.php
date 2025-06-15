@@ -25,35 +25,30 @@ class RegisteredUserController extends Controller
 
     /**
      * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-
-            'First name' => 'required|string|max:255',
-            'Last name' => 'required|string|max:255',
-
-            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
-            
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'Address' => 'required|string|max:255',
-            'City' => 'required|string|max:255',
-            'State' => 'required|string|max:255',
-            'Zip' => 'required|string|max:10',
-
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'email'      => 'required|string|lowercase|email|max:255|unique:'.User::class,
+            'password'   => ['required', Rules\Password::defaults()],
+            'address'    => 'required|string|max:255',
+            'city'       => 'required|string|max:255',
+            'state'      => 'required|string|max:255',
+            'zip'        => 'required|string|max:10',
         ]);
 
         $user = User::create([
-            'First name' => $request->Firstname,
-            'Last name' => $request->Lastname,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'Address' => $request->Address,
-            'City' => $request->City,
-            'State' => $request->State,
-            'Zip' => $request->Zip,
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
+            'name'       => $request->first_name . ' ' . $request->last_name,  // Full name
+            'email'      => $request->email,
+            'password'   => Hash::make($request->password),
+            'address'    => $request->address,
+            'city'       => $request->city,
+            'state'      => $request->state,
+            'zip'        => $request->zip,
         ]);
 
         event(new Registered($user));

@@ -1,5 +1,5 @@
-
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
@@ -7,9 +7,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/main.js',
+                'resources/js/main.js', // this should be where your Vue app is bootstrapped
             ],
             refresh: true,
         }),
+        vue(), // add Vue plugin after laravel()
     ],
 });
